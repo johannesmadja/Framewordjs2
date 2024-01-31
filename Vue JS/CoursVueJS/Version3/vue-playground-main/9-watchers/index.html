@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="watchers.css">
+  <title>Watchers</title>
+</head>
+<body>
+  <script type="module">
+    import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js';
+    
+    createApp({
+      data() {
+        return {
+          todoId: 1,
+          todoData: null,
+          users : {},
+        }
+      },
+    
+      methods: {
+        async fetchData() {
+          this.todoData = null;
+          const res = await fetch(`./todos.json`);
+          const userData = await fetch(`./users.json`);
+
+          this.todoData = (await res.json())[this.todoId - 1];
+          this.users = await userData.json();
+        },
+
+        deleteUser(user) {
+          this.users = this.users.filter((t) => t !== user);
+        }
+
+      },
+
+    
+      mounted() {
+        this.fetchData()
+      }, 
+
+      watch : {
+        todoId() {
+          this.fetchData();
+        },
+      }
+    }).mount('#app');
+    </script>
+    
+    <div v-cloak id="app" class = "container">
+      <!-- <p>Todo id: {{ todoId }}</p>
+
+      <button @click="todoId++">Fetch next todo</button>
+
+      <p v-if="!todoData">Loading...</p>
+      <div v-else>
+        <table>
+          <tr>
+            <td>Etudiant N°1</td>
+            <td>{{todoData.id}}</td>
+          </tr>
+
+          <tr>
+            <td>Titre</td>
+            <td>{{todoData.title}}</td>
+          </tr>
+
+          <tr>
+            <td>Réponse</td>
+            <td>{{todoData.completed}}</td>
+          </tr>
+        </table>
+
+      </div>
+
+      <br> -->
+      
+      <table>
+        <tr>
+          <th>id</th>
+          <th>nom et prénom</th>
+          <th>username</th>
+          <th>email</th>
+          <th>tel</th>
+          <th>Del</th>
+        </tr>
+
+        <tr v-for="(user, index) in users" :key="user.id">
+          <td>{{index += 1}}</td>
+          <td>{{user.name}} </td>
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+          <td><button @click="deleteUser(user)">X</button></td>
+        </tr>
+
+      </table>
+
+    </div>
+</body>
+</html>
+
+

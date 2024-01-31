@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <p ref = "test">Paragraphe à afficher</p>
+        {{verifyAddress}}
+    </div>
+
+    <script type = "module">
+         import {createApp} from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js';
+
+        createApp({
+            data(){
+                return {
+                    user : {
+                        firstname : "John",
+                        address : {
+                            tel : "+29965874596",
+                            email : "test@highfive.com",
+                        }
+                    }
+                }
+            },
+
+            methods : {
+                start() {
+                    const paragraph = this.$refs.test;
+                    console.log(paragraph);
+                }
+            },
+
+            computed : {
+                verifyAddress() {
+                    return this.user.address.email.endsWith("@highfive.com") ? `${this.user.address.email} est une addresse mail Highfive`
+                    : `${this.user.address.email} n'est pas une addresse mail Highfive`;
+                }
+            }, 
+
+            mounted () {
+                this.start();
+            }
+
+        }).mount("#app")
+
+    </script>
+
+</body>
+</html>

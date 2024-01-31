@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Computed | Property</title>
+</head>
+<body>
+  
+  <script type="module">
+    import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js';
+    
+    let id = 0;
+    
+    createApp({
+      data() {
+        return {
+          newTodo: '',
+          hideCompleted: false,
+          todos: [
+            { id: id++, text: 'Learn HTML', done: true },
+            { id: id++, text: 'Learn JavaScript', done: true },
+            { id: id++, text: 'Learn Vue', done: false }
+          ]
+        }
+      },
+    
+      computed: {
+        /* 
+        let tmp = [];
+        if (this.hideCompleted === true) {
+          this.todos.forEach((todo) => {
+            if (todo.done === false) {
+              tmp.push(todo);
+            }
+          })
+        return tmp;
+        }else {
+          return this.todos;
+        }
+        */ 
+
+        filteredTodos() {
+          return this.hideCompleted ? this.todos.filter((e) => e.done !== true) : this.todos;
+        }
+      },
+    
+      methods: {
+        addTodo() {
+          this.todos.push({ id: id++, text: this.newTodo, done: false });
+          this.newTodo = ''
+        },
+        removeTodo(todo) {
+          this.todos = this.todos.filter((t) => t !== todo)
+        }
+      }
+    }).mount('#app');
+    </script>
+    
+    <div id="app">
+      <form @submit.prevent="addTodo">
+        <input v-model="newTodo">
+        <button>Add Todo</button>
+      </form>
+    
+      <ul>
+        <li v-for="todo in filteredTodos" :key="todo.id">
+
+          <input type="checkbox" v-model="todo.done">
+
+          <span :class="{ done: todo.done }">{{ todo.text }}</span>
+          
+          <button @click="removeTodo(todo)">X</button>
+        </li>
+      </ul>
+    
+      <button @click="hideCompleted = !hideCompleted">
+        {{ hideCompleted ? 'Show all' : 'Hide completed' }}
+      </button>
+    </div>    
+
+</body>
+</html>
+

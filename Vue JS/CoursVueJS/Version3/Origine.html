@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.min.js" integrity="sha512-Wbf9QOX8TxnLykSrNGmAc5mDntbpyXjOw9zgnKql3DgQ7Iyr5TCSPWpvpwDuo+jikYoSNMD9tRRH854VfPpL9A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+    <title>Vue | Version 3</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <h1> {{msg}} </h1>
+
+    </div>
+<!--
+    <script>
+        // Fonction permettant de monter l'application
+        const { createApp } = Vue;
+
+        // On monte l'application Vue dans la div#app
+        createApp({
+            // liste des options
+            data() {
+                return {
+                    // vos états (state)
+                    msg : "Hello World !"
+                }
+            }
+        }).mount("#app");
+
+    </script>
+-->
+
+<script type = "module" >
+	import {createApp} from "https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js";
+
+        // On monte l'application Vue dans la div#app
+        createApp({
+            // liste des options
+            data() {
+                return {
+                    // vos états (state)
+                    msg : "Hello World !"
+                }
+            }
+        }).mount("#app");
+</script>
+</body>
+</html>

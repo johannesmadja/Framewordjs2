@@ -1,0 +1,30 @@
+
+
+<script type="module">
+import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js';
+
+createApp({
+  data() {
+    return {
+      count: 0
+    }
+  },
+
+  methods : {
+    countClick () {
+      return this.count++
+    },
+
+    log(event) {
+      event.preventDefault();
+      console.log("Affiche moi ceci 😎");
+    },
+  }
+}).mount('#app')
+</script>
+
+<div id="app">
+  <!-- make this button work -->
+  <button v-on:click = "countClick">count is: {{ count }}</button> <br>
+  <a href="" @click = "log">Clique ici</a>
+</div>

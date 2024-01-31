@@ -1,0 +1,41 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="app">
+    <h1 v-bind:class = "titleClass">Donnez-moi une couleur rouge</h1>
+
+    <button v-on:click = "test"> Affiche moi un message</button>
+  </div>
+  
+  <script type="module">
+    import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js';
+    
+    createApp({
+      data() {
+        return {
+          titleClass: 'title'
+        }
+      },
+
+      methods : {
+        test : function () {
+          alert("Hello World !")
+        }
+      },
+    }).mount('#app')
+    </script>
+
+</body>
+</html>
+
+

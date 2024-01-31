@@ -1,0 +1,45 @@
+<script type="module">
+import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js';
+
+// give each todo a unique id
+let id = 0
+
+createApp({
+  data() {
+    return {
+      newTodo: '',
+      todos: [
+        { id: id++, text: 'Learn HTML' },
+        { id: id++, text: 'Learn JavaScript' },
+        { id: id++, text: 'Learn Vue' }
+      ]
+    }
+  },
+  methods: {
+    addTodo() {
+      // ...
+      this.todos.push({id: id++, text: this.newTodo});
+      this.newTodo = "";
+    },
+
+    removeTodo(index) {
+      // ...
+      this.todos.splice(index, 1);
+    }
+  }
+}).mount('#app')
+</script>
+
+<div id="app">
+  <form @submit.prevent="addTodo">
+    <input v-model="newTodo">
+    <button>Add Todo</button>    
+  </form>
+
+  <ul>
+    <li v-for="(todo, index) in todos" :key="todo.id">
+      {{ todo.text }}
+      <button @click="removeTodo(index)">X</button>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,170 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+/* html */
+html {
+    font-size: 62.8%;
+}
+
+
+/* body */
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 1.6rem;
+    height: 100vh;
+    background-image: linear-gradient(to right, rgb(42, 7, 146), #4c058b);
+}
+
+/* ****************************************************************************
+TYPOGRAPHIE
+*******************************************************************************/
+h1, 
+p {
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 5rem;
+    color: rgb(142, 7, 7);
+}
+
+ul > li {
+    font-size: 1.7rem;
+}
+
+
+
+
+/* Taille du container */
+.container {
+    max-width: 780px;
+    margin-inline: auto;
+    margin-top: 10vh;
+
+    padding: 1rem;
+    background-color: rgb(220, 142, 102);
+    border-radius: 5px;
+
+}
+
+/* Contours de la section principale */
+section {
+    padding: 0.5rem;
+    border : 1px solid #eee;
+    background-color: #eee;
+    box-shadow: 0px 0px 5px;
+}
+
+/* Justification du titre H1 */
+h1 {
+    text-align: center;
+    text-shadow: 0px 0px 3px;
+}
+
+
+/* Champs de saisie des tâches */
+input {
+    width: 100%;
+    padding: 1.5rem 0rem 1.5rem 2rem;
+    outline: none;
+    border-color: transparent;
+}
+
+/* Reset du ul et mise en forme des li */
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+ul > li {
+    margin-left: 1.5rem;
+    padding-block: 1rem;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+
+    position : relative;
+    cursor: pointer;
+}
+
+span.spanbefore {
+    display: inline-block;
+    width: 1.8rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: rgb(226, 77, 23);
+    margin-right: 1rem; 
+}
+
+span.spanbefore.validate {
+    font-family: "Font Awesome 6 Free";
+    content : "\f00c";
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+
+    color: white;
+    background-color: green;
+}
+
+.checked {
+    text-decoration: line-through;
+}
+
+ 
+li > span.cross {
+    position: absolute;
+    right : 10px;
+    border: 1px solid #eee;
+    padding: 0.3rem 0.5rem;
+    transition: all 0.7s;
+}
+
+li > span.cross:hover {
+    font-weight: 500;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+
+
+/* Texte de tâche par défaut */
+p {
+    margin-left: 1.5rem;
+}
+
+section > p {
+    display: block;
+}
+
+/* Section des button de filtrage */
+.bottomfilterbutton,
+.bottomfilterbutton > div {
+    display: flex;
+}
+
+/* Largeur des items flexibles */
+.bottomfilterbutton > p {
+    flex-basis: 30%;
+}
+
+.bottomfilterbutton > div {
+    flex-basis: 70%;
+}
+
+.bottomfilterbutton > div > button {
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+    height: fit-content;
+    font-size: 1.5rem;
+}
+
+.bottomfilterbutton > div > button:hover {
+    border-radius: 5px;
+    cursor: pointer;
+}
+

@@ -1,0 +1,32 @@
+<script type="module">
+import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js';
+
+createApp({
+  data() {
+    return {
+      text: '',
+      pwd : 'motdepasse',
+    }
+  },
+
+  methods: {
+    onInput(e) {
+      this.text = e.target.value;
+    },
+
+    // onPassword(e) {
+    //   this.pwd = e.target.value;
+    // }
+  }
+}).mount('#app')
+</script>
+
+<div id="app">
+  <input :value="text" @input="onInput" placeholder="Type here">
+  <p> Affichage de la valeur : {{ text }}</p>
+
+  <br>
+
+  <input v-model="pwd" placeholder="Type here" type="password">
+  <p> Affichage du mot de passe : {{ pwd }}</p>
+</div>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ `Je m'appelle ${prenom} ${nom}, je suis ${profession}. J'ai eu ${note.Pascal} au test d'entrée ` }} 
+        
+        <br>
+
+        <p v-if="seen"> Maintenant vous me voyez </p>
+        <p v-else> Là vous voyez une alternative </p>
+
+        <p v-if="age === 10"> Vous avez 10 ans</p>
+        <p v-else-if="age === 20"> Vous avez 20 ans</p>
+        <p v-else> Désolé</p>
+
+        <span v-bind:title="message">
+            Passez votre souris sur moi pendant quelques secondes
+            pour voir mon titre lié dynamiquement !
+        </span>
+
+        <div>
+            <ul>
+                <li v-for = "note in notes">
+                    {{ note }}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.0-rc.8/vue.js"></script> -->
+    <script src="app.js"></script>
+</body>
+
+</html>

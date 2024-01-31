@@ -1,0 +1,35 @@
+<script type="module">
+import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js';
+
+createApp({
+
+  data() {
+    return {
+      counter : 0,
+    }
+  },
+  
+  methods : {
+    replace(){
+      const paragraph = this.$refs.pElementRef;
+      paragraph.innerHTML = "Bonjour tout le monde  !";
+    }
+  }, 
+
+  mounted() {
+    this.replace();
+  },
+
+  watch : {
+    counter(newValue, oldValue) {
+      console.log(`Le compte à changer de ${oldValue} à nouvelle valeur : ${newValue}`);
+    }
+  }
+
+}).mount('#app')
+</script>
+
+<div v-cloak id="app">
+  <p ref="pElementRef">hello</p>
+  <button @click = "counter++">Counter {{counter}}</button>
+</div>

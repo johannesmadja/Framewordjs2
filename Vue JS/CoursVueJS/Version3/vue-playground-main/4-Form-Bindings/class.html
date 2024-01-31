@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <title>Form | Binding</title>
+</head>
+<body>
+
+    <script type = "module">
+        import {createApp} from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js';
+
+
+        createApp({
+            data() {
+                return {
+                    lastname : '',
+                    firstname : '',
+                    mail : '',
+                    pwrd : '',
+                    message : '',
+                    checkname : [],
+                    radioChoice : "",
+                    selected : "",
+                }
+            }
+        }).mount("#app")
+
+    </script>
+
+    <div id="app" class = "container">
+        <form action="#" method="get">
+            <div class = "input-text">
+                <h2>TEXTE</h2>
+                <p>Affichage du nom : {{lastname}} </p>
+                <input v-model="lastname" type="text" placeholder = "Entrez votre nom"> <br><br>
+                <p>Affichage du prenom : {{firstname}} </p>
+                <input v-model = "firstname" type="text" placeholder = "Entrez votre prenom"> <br><br>
+                <p>Affichage de l'addresse mail : {{mail}} </p>
+                <input v-model = "mail" type="email" placeholder = "Entrez votre addrese mail"> <br><br>
+                <p>Affichage du mot de passe utilisateur : {{pwrd}} </p>
+                <input v-model = "pwrd" type="password" placeholder = "Votre mot de passe">
+            </div>
+
+            <div class="input-text">
+                <h2>TEXTE  MULTILIGNE</h2>
+                <p> Votre message : {{ message }}</p>
+                <textarea  v-model = 'message' placeholder = "ajouter plusieurs lignes" rows = "10" cols="30"></textarea>
+            </div>
+
+            <div class="input-text">
+                <h2>MULTI - CHECKBOX</h2>
+
+                <div> Noms sélectionées :  {{checkname}} </div> <br>
+
+                <input v-model = "checkname" type="checkbox" id = "Martin" value = "Martin"> 
+                <label for="Martin">Martin</label>
+
+                <input v-model = "checkname" type="checkbox" id = "Alex" value = "Alex"> 
+                <label for="Alex">Alex</label>
+
+                <input v-model = "checkname" type="checkbox" id = "David" value = "David"> 
+                <label for="David">David</label>
+
+                <input v-model = "checkname" type="checkbox" id = "Rosaline" value = "Rosaline"> 
+                <label for="Rosaline">Rosaline</label>
+
+                <input v-model = "checkname" type="checkbox" id = "Alice" value = "Alice"> 
+                <label for="Alice">Alice</label>
+            </div>
+
+            <div class="input-text">
+                <h2>RADIO</h2>
+                <div>Votre choix : {{radioChoice}}</div><br>
+
+                <input type="radio" id = "un" v-model = "radioChoice" value = "Un">
+                <label for = "un"> Un </label>
+
+                <input type="radio" id = "deux" v-model = "radioChoice" value = "Deux">
+                <label for = "deux"> Deux </label>
+            </div>
+
+            <div class="input-text">
+                <h2>SELECT</h2>
+                <div> Valeur sélectionée : {{selected}} </div><br>
+                <select v-model = "selected">
+                    <option value = "" disabled selected> Choisissez votre option</option>
+                    <option value = "a">A</option>
+                    <option value = "b">B</option>
+                    <option value = "c">C</option>
+                </select>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="TodoList2.js"></script>
+
+    <script src="https://kit.fontawesome.com/5032bc1a8b.js" crossorigin="anonymous"></script>
+    <title>TodoList</title>
+</head>
+<body>
+    <header class="header"></header>
+
+    <main class="main">
+        <div class="container">
+
+            <h1>TodosApp</h1>
+            <section>
+    
+                
+                <input type="text" placeholder = "What needs to be done ?" id = "inputlist">
+                
+
+                <ul id = "updatelist">
+                     <!-- <li> <span class="checked" ></span> tâche 1</li> -->
+                    <!-- <li> <span class = "spanbefore validate"></span> tache 2</li> -->
+                     <!--<li>tache 3</li> -->
+                </ul>
+                <p>Aucune tâche ajoutée</p>
+
+                <div id = "filterbutton" class = "bottomfilterbutton">
+                    <p id = "updateitemsleft" > <span></span> items left</p>
+                    <div>
+                        <button id = "all">All</button>
+                        <button id = "active">Active</button>
+                        <button id = "completed">Completed</button>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <footer class="footer"></footer>
+</body>
+</html>

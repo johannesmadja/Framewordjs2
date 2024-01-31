@@ -1,0 +1,53 @@
+[v-cloak] {
+    display: none;
+}
+
+body {
+    text-align: center;
+
+}
+
+.container {
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+table {
+    width: 100%;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+    padding-block: 6px;
+}
+
+th {
+    padding-block: 15px;
+}
+
+tr:first-child {
+    font-family: sans-serif;
+    background-color: rgb(12, 24, 114);
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(174, 202, 202);
+}
+
+button {
+    border: none;
+    transition: all 1s;
+}
+
+button:hover {
+    color: #fff;
+    background-color: rgb(155, 12, 12);
+}
